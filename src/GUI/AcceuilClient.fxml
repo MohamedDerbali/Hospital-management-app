@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import java.net.URL?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" cache="true" minWidth="-Infinity" prefHeight="632.0" prefWidth="1339.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AcceuilClientController">
+   <children>
+      <Pane layoutX="-1.0" layoutY="-7.0" prefHeight="136.0" prefWidth="1339.0" style="-fx-background-color: #629AC1;">
+         <children>
+            <JFXHamburger fx:id="hamburger" layoutX="31.0" layoutY="33.0" prefWidth="30.0" stylesheets="@hmburgerCss.css" />
+            <Button fx:id="btn_disconnect" layoutX="1213.0" layoutY="17.0" mnemonicParsing="false" onAction="#disconnect" prefHeight="51.0" prefWidth="89.0">
+               <graphic>
+                  <ImageView fx:id="img_disconnect" fitHeight="37.0" fitWidth="54.0" onMouseClicked="#disconnect" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/Logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </Pane>
+      <ImageView fitHeight="128.0" fitWidth="338.0" layoutX="182.0" layoutY="1.0" opacity="0.45" pickOnBounds="true">
+         <image>
+            <Image url="@elder-couple.png" />
+         </image>
+      </ImageView>
+      <JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="130.0" prefHeight="564.0" prefWidth="161.0" style="-fx-background-color: DBE4FF;" />
+      <Pane fx:id="prestation" layoutX="161.0" layoutY="129.0" prefHeight="553.0" prefWidth="1179.0" style="-fx-background-color: #DBE4FF;" visible="false">
+         <children>
+            <TableView fx:id="tabviewResidentToShowFiles" layoutX="63.0" layoutY="143.0" prefHeight="338.0" prefWidth="444.0">
+              <columns>
+                <TableColumn fx:id="nomResidentInTableView" prefWidth="84.0" text="Nom" />
+                <TableColumn fx:id="prenomResidentInTableView" prefWidth="106.0" text="Prenom" />
+                  <TableColumn fx:id="ageResidentInTableView" prefWidth="71.0" text="Age" />
+                  <TableColumn fx:id="maisonResidentInTableView" prefWidth="181.0" text="Maison de retraite" />
+              </columns>
+            </TableView>
+            <TextField fx:id="researchResidentTextField" layoutX="64.0" layoutY="110.0" prefHeight="29.0" prefWidth="444.0" promptText="Rechercher resident  ..." style="-fx-background-color: white;" />
+            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="473.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../projetpidev/images/search.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="135.0" layoutY="53.0" text="Liste des résidents :" textFill="#629ac1">
+               <font>
+                  <Font name="Bell MT Bold" size="36.0" />
+               </font></Label>
+            <Label layoutX="592.0" layoutY="108.0" prefHeight="33.0" prefWidth="61.0" text="Patient : ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="nomResidentInFiche" layoutX="688.0" layoutY="108.0" prefHeight="33.0" prefWidth="61.0" text="nom" />
+            <Label fx:id="prenomResidentInFiche" layoutX="760.0" layoutY="108.0" prefHeight="33.0" prefWidth="61.0" text="Prénom" />
+            <Label fx:id="dateInscriptionInFiche" layoutX="1083.0" layoutY="108.0" prefHeight="33.0" prefWidth="110.0" text="Date" visible="false" />
+            <Label fx:id="RoleUserInFiche" layoutX="588.0" layoutY="167.0" prefHeight="33.0" prefWidth="69.0" text="Role user :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <TextArea fx:id="medicaments" editable="false" layoutX="682.0" layoutY="226.0" prefHeight="72.0" prefWidth="454.0" style="-fx-border-color: #DBE4FF;" />
+            <Label layoutX="587.0" layoutY="363.0" prefHeight="33.0" prefWidth="142.0" text="niveau de temperature :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label layoutX="789.0" layoutY="363.0" prefHeight="33.0" prefWidth="97.0" text="Taux de sucre :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Button fx:id="modifyButton" layoutX="586.0" layoutY="500.0" mnemonicParsing="false" onAction="#modifierFiche" prefHeight="25.0" prefWidth="126.0" text="Modifier" />
+            <Button id="btn-red" layoutX="1002.0" layoutY="500.0" mnemonicParsing="false" onAction="#exporterFiches" prefHeight="37.0" prefWidth="150.0" text="Exporter PDF" />
+            <Label layoutX="712.0" layoutY="29.0" text="Fiche medicale :" textFill="#629ac1">
+               <font>
+                  <Font name="Bell MT Bold" size="39.0" />
+               </font></Label>
+            <Label fx:id="tempLevel" layoutX="735.0" layoutY="363.0" prefHeight="33.0" prefWidth="37.0" text="37 °" />
+            <Label fx:id="sucLevel" layoutX="897.0" layoutY="363.0" prefHeight="33.0" prefWidth="37.0" text="0.5 g" />
+            <Button layoutX="419.0" layoutY="500.0" mnemonicParsing="false" onAction="#supprimerFiche" prefHeight="25.0" prefWidth="126.0" text="Supprimer" visible="false" />
+            <Pane layoutX="557.0" layoutY="70.0" prefHeight="448.0" prefWidth="1.0" style="-fx-background-color: #629AC1;" />
+            <Label fx:id="nomUserInFiche" layoutX="688.0" layoutY="167.0" prefHeight="33.0" prefWidth="61.0" text="nom" />
+            <Label fx:id="prenomUserInFiche" layoutX="759.0" layoutY="167.0" prefHeight="33.0" prefWidth="61.0" text="Prénom" />
+            <Label layoutX="924.0" layoutY="108.0" prefHeight="33.0" prefWidth="126.0" text="Date de l'inscription :" visible="false">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="838.0" layoutY="148.0" prefHeight="72.0" prefWidth="239.0" text="Date de derniere modification de la fiche :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateDerModif" layoutX="1085.0" layoutY="167.0" prefHeight="33.0" prefWidth="110.0" text="Date" />
+            <Label layoutX="588.0" layoutY="220.0" prefHeight="33.0" prefWidth="97.0" text="Médicaments :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="973.0" layoutY="363.0" prefHeight="33.0" prefWidth="110.0" text="Tension artérielle :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="tensionLevel" layoutX="1106.0" layoutY="363.0" prefHeight="33.0" prefWidth="69.0" text="0.5 g" />
+            <Label layoutX="587.0" layoutY="312.0" prefHeight="33.0" prefWidth="142.0" text="Taille : ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="789.0" layoutY="312.0" prefHeight="33.0" prefWidth="97.0" text="Poids :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="taille" layoutX="732.0" layoutY="312.0" prefHeight="33.0" prefWidth="49.0" text="166 cm" />
+            <Label fx:id="poids" layoutX="893.0" layoutY="312.0" prefHeight="33.0" prefWidth="49.0" text="70.5 kg" />
+            <Label layoutX="973.0" layoutY="312.0" prefHeight="33.0" prefWidth="110.0" text="Groupe Sanguin :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="groupeSanguin" layoutX="1107.0" layoutY="312.0" prefHeight="33.0" prefWidth="37.0" text="A+" />
+            <TextArea fx:id="remarqueFiche" editable="false" layoutX="680.0" layoutY="417.0" prefHeight="72.0" prefWidth="454.0" style="-fx-border-color: #DBE4FF;" />
+            <Label layoutX="586.0" layoutY="411.0" prefHeight="33.0" prefWidth="97.0" text="Remarques :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button layoutX="746.0" layoutY="500.0" mnemonicParsing="false" onAction="#creerFiche" prefHeight="37.0" prefWidth="239.0" text="Ajouter une nouvelle fiche" />
+            <Pane fx:id="addFichePane" layoutX="566.0" layoutY="1.0" prefHeight="553.0" prefWidth="599.0" style="-fx-background-color: #DBE4FF;" visible="false">
+               <children>
+                  <Button fx:id="btn_creerFiche" layoutX="198.0" layoutY="230.0" mnemonicParsing="false" onAction="#creerFiche" prefHeight="37.0" prefWidth="269.0" text="+ Créer sa première fiche" />
+               </children>
+            </Pane>
+            <Pane fx:id="fichePane" layoutX="576.0" layoutY="5.0" prefHeight="543.0" prefWidth="599.0" style="-fx-background-color: #DBE4FF;" visible="false">
+               <children>
+                  <ImageView fitHeight="179.0" fitWidth="178.0" layoutX="263.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@file-logo-png-8.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="refreshFile" fitHeight="96.0" fitWidth="97.0" layoutX="133.0" layoutY="214.0" onMouseClicked="#refreshFileData" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../projetpidev/images/refresh-button.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="maison" layoutX="158.0" layoutY="129.0" prefHeight="555.0" prefWidth="1180.0" style="-fx-background-color: #DBE4FF;" visible="false">
+         <children>
+            <JFXButton layoutX="118.0" layoutY="384.0" onAction="#ajouterMaison" prefHeight="37.0" prefWidth="224.0" text="Ajouter votre maison">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="188.0" layoutY="166.0" text="Nom:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="187.0" layoutY="207.0" text="Adresse:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="187.0" layoutY="256.0" text="Téléphone:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="187.0" layoutY="299.0" text="Email:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nom_maison1" layoutX="283.0" layoutY="162.0" />
+            <TextField fx:id="adresse_maison" layoutX="283.0" layoutY="203.0" />
+            <TextField fx:id="telephone_maison" layoutX="283.0" layoutY="252.0" />
+            <TextField fx:id="mail_maison" layoutX="283.0" layoutY="295.0" />
+            <JFXButton layoutX="553.0" layoutY="348.0" onAction="#supprimerMaison" text="Supprimer votre maison">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="348.0" layoutY="440.0" text="Modifier">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="79.0" fitWidth="89.0" layoutX="77.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../yafet/HappyoldsVersionYafet/src/Images/picto_2.jpg" />
+               </image>
+            </ImageView>
+            <TableView fx:id="table_maison" layoutX="534.0" layoutY="107.0" prefHeight="200.0" prefWidth="471.0">
+               <columns>
+                  <TableColumn fx:id="cnom_maison" prefWidth="108.0" text="Nom" />
+                  <TableColumn fx:id="cadresse_maison" prefWidth="114.0" text="Adresse" />
+                  <TableColumn fx:id="ctelephone_maison" prefWidth="107.0" text="Téléphone" />
+                  <TableColumn fx:id="cmail_maison" prefWidth="140.0" text="Mail" />
+                  <TableColumn fx:id="cpersonne_maison" prefWidth="77.0" text="Personne" />
+                  <TableColumn fx:id="chomme_maison" prefWidth="61.0" text="Homme" />
+                  <TableColumn fx:id="cfemme_maison" prefWidth="63.0" text="Femme" />
+                  <TableColumn fx:id="calzheimer_maison" prefWidth="62.0" text="Alzheimer" />
+               </columns>
+            </TableView>
+            <Label layoutX="159.0" layoutY="71.0" text="Maison de retraite" textFill="#29336b">
+               <font>
+                  <Font name="System Bold" size="31.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="adresse_error" fitHeight="25.0" fitWidth="16.0" layoutX="441.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../yafet/HappyoldsVersionYafet/src/Images/exclamation-mark.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="1065.0" layoutY="73.0" mnemonicParsing="false" onAction="#affectResident" prefHeight="79.0" prefWidth="89.0" style="-fx-background-color: a8ddd3;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="79.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/usuario-admin.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children></Pane>
+      <Pane fx:id="accueil" layoutX="158.0" layoutY="129.0" prefHeight="567.0" prefWidth="1180.0" style="-fx-background-color: #DBE4FF;">
+         <children>
+            <Text fill="#629ac1" layoutX="299.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Happy Olds !!" wrappingWidth="597.249997921288">
+               <font>
+                  <Font name="Bell MT Bold" size="46.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="237.0" fitWidth="295.0" layoutX="464.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@New%20Mockup%201%20copy4.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane fx:id="event" layoutX="158.0" layoutY="129.0" prefHeight="559.0" prefWidth="1181.0" style="-fx-background-color: #DBE4FF;" visible="false">
+         <children>
+            <TextField fx:id="idnom" layoutX="37.0" layoutY="125.0" prefHeight="25.0" prefWidth="405.0" promptText="Nom de l'evenement" />
+            <TextField fx:id="idadresse" layoutX="37.0" layoutY="184.0" prefHeight="25.0" prefWidth="405.0" promptText="Adresse" />
+            <TextField fx:id="idheure" layoutX="37.0" layoutY="357.0" prefHeight="25.0" prefWidth="184.0" promptText="Heure" />
+            <TextField fx:id="iddescription" alignment="CENTER" layoutX="245.0" layoutY="240.0" prefHeight="143.0" prefWidth="197.0" promptText="Description" />
+            <DatePicker fx:id="iddated" layoutX="37.0" layoutY="252.0" promptText="Date de debut" />
+            <DatePicker fx:id="iddatef" layoutX="37.0" layoutY="299.0" promptText="Date de fin" />
+            <TableView fx:id="idtable" layoutX="685.0" layoutY="124.0" prefHeight="257.0" prefWidth="451.0">
+               <columns>
+                  <TableColumn fx:id="iddatedd" prefWidth="75.0" text="date_debut" />
+                  <TableColumn fx:id="iddateff" prefWidth="75.0" text="date_fin" />
+                  <TableColumn fx:id="idheuree" prefWidth="75.0" text="heure" />
+                  <TableColumn fx:id="idnomm" prefWidth="75.0" text="nom" />
+                  <TableColumn fx:id="idadressee" prefWidth="75.0" text="adresse" />
+                  <TableColumn fx:id="iddescriptionn" prefWidth="75.0" text="description" />
+               </columns>
+            </TableView>
+            <Button fx:id="idsupprimer" layoutX="994.0" layoutY="413.0" mnemonicParsing="false" onAction="#supprimerEvent" prefHeight="37.0" prefWidth="133.0" text="supprimer" />
+            <Text layoutX="57.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="créer un evenement">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Text>
+            <Button fx:id="idmodifier" layoutX="696.0" layoutY="413.0" mnemonicParsing="false" onAction="#modifierEvent" prefHeight="37.0" prefWidth="126.0" text="modifier" textFill="#141414" />
+            <TextField fx:id="idrechercherEvent" layoutX="739.0" layoutY="69.0" onAction="#rechercherEvent" prefHeight="37.0" prefWidth="142.0" promptText="Recherche_nom" />
+            <TextField fx:id="idrechercheradresse" layoutX="943.0" layoutY="69.0" onAction="#rechercherEvent1" prefHeight="37.0" prefWidth="142.0" promptText="Recherche_adresse" />
+            <Button fx:id="idenregistrer" cache="true" layoutX="155.0" layoutY="414.0" mnemonicParsing="false" onAction="#ajouterEvent" prefHeight="37.0" prefWidth="174.0" text="enregistrer" textFill="#0d0d0d">
+               <font>
+                  <Font name="Algerian" size="12.0" />
+               </font>
+            </Button>
+         </children></Pane>
+      <Pane fx:id="profile" layoutX="158.0" layoutY="129.0" prefHeight="562.0" prefWidth="1182.0" style="-fx-background-color: #DBE4FF;" visible="false">
+         <children>
+            <Line endX="-152.0" endY="331.0" layoutX="699.0" layoutY="196.0" startX="-152.0" startY="-172.0" />
+            <Text fill="#4d00ff" fontSmoothingType="LCD" layoutX="60.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom:">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#4d00ff" fontSmoothingType="LCD" layoutX="60.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom:">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#4d00ff" fontSmoothingType="LCD" layoutX="60.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#4d00ff" fontSmoothingType="LCD" layoutX="57.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse:">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#4d00ff" fontSmoothingType="LCD" layoutX="60.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Téléphone:">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#ff0076" fontSmoothingType="LCD" layoutX="34.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informations sur l'utilisateur:">
+               <font>
+                  <Font name="Arial Bold" size="27.0" />
+               </font>
+            </Text>
+            <JFXButton layoutX="136.0" layoutY="447.0" onAction="#showModificationPane" prefHeight="37.0" prefWidth="220.0" ripplerFill="RED" text="Modifier" />
+            <Text fx:id="unom_txt" fontSmoothingType="LCD" layoutX="135.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="uprenom_txt" fontSmoothingType="LCD" layoutX="176.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="uemail_txt" fontSmoothingType="LCD" layoutX="161.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="uadresse_txt" fontSmoothingType="LCD" layoutX="176.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fx:id="uphone_txt" fontSmoothingType="LCD" layoutX="204.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Téléphone">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#ff0076" fontSmoothingType="LCD" layoutX="606.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modification:">
+               <font>
+                  <Font name="Arial Bold" size="27.0" />
+               </font>
+            </Text>
+            <JFXButton layoutX="727.0" layoutY="447.0" onAction="#modifyUserData" prefHeight="37.0" prefWidth="220.0" ripplerFill="RED" text="Appliquer" />
+            <Text fill="#4d00ff" fontSmoothingType="LCD" layoutX="579.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#4d00ff" fontSmoothingType="LCD" layoutX="579.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse:">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#4d00ff" fontSmoothingType="LCD" layoutX="579.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Téléphone:">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <PasswordField fx:id="mdp_txf" layoutX="757.0" layoutY="287.0" prefHeight="38.0" prefWidth="217.0" promptText="Nouveau mot de pass" style="-fx-background-color: white;" />
+            <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="946.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../chahir/HappyoldsVersion1.0Chahir/src/projetpidev/images/locked-padlock.png" />
+               </image>
+            </ImageView>
+            <Text fill="#4d00ff" fontSmoothingType="LCD" layoutX="579.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe:">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Text>
+            <TextField fx:id="uemail_txf" layoutX="659.0" layoutY="101.0" prefHeight="38.0" prefWidth="217.0" style="-fx-background-color: white;" />
+            <TextField fx:id="uadresse_txf" layoutX="707.0" layoutY="161.0" prefHeight="38.0" prefWidth="217.0" style="-fx-background-color: white;" />
+            <TextField fx:id="uphone_txf" layoutX="729.0" layoutY="226.0" prefHeight="38.0" prefWidth="217.0" style="-fx-background-color: white;" />
+            <Pane fx:id="hideModifPane" layoutX="561.0" layoutY="28.0" prefHeight="476.0" prefWidth="622.0" style="-fx-background-color: DBE4FF;" visible="false" />
+         </children></Pane>
+      <Pane fx:id="action" layoutX="158.0" layoutY="129.0" prefHeight="553.0" prefWidth="1179.0" style="-fx-background-color: #DBE4FF;" visible="false">
+         <children>
+            <Label layoutX="208.0" layoutY="70.0" text="Action de bénévolat">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="120.0" layoutY="133.0" text="Type d'action :" textAlignment="CENTER" />
+            <Label layoutX="120.0" layoutY="179.0" text="Date début : " />
+            <Label layoutX="120.0" layoutY="230.0" text="Date fin : " />
+            <Label layoutX="120.0" layoutY="291.0" text="Description : " />
+            <TextField fx:id="description_action" layoutX="252.0" layoutY="287.0" prefHeight="79.0" prefWidth="174.0" />
+            <Button fx:id="ajouter_action" layoutX="252.0" layoutY="380.0" mnemonicParsing="false" onAction="#ajouterAction" prefHeight="35.0" prefWidth="107.0" text="Ajouter" />
+            <DatePicker fx:id="debut" layoutX="252.0" layoutY="175.0" />
+            <DatePicker fx:id="fin" layoutX="252.0" layoutY="226.0" />
+            <TableView fx:id="idtable_action" layoutX="530.0" layoutY="126.0" prefHeight="200.0" prefWidth="318.0">
+               <columns>
+                  <TableColumn fx:id="idType" prefWidth="75.0" text="Type" />
+                  <TableColumn fx:id="idDebut" prefWidth="75.0" text="date_debut" />
+                  <TableColumn fx:id="idFin" prefWidth="93.0" text="date_fin" />
+                  <TableColumn fx:id="idDescription" prefWidth="74.0" text="Description" />
+               </columns>
+            </TableView>
+            <Button id="btn-red" fx:id="supprimer_action" layoutX="584.0" layoutY="399.0" mnemonicParsing="false" onAction="#supprimerAction" prefHeight="37.0" prefWidth="212.0" text="Supprimer votre action" />
+            <ChoiceBox fx:id="type_picker" layoutX="252.0" layoutY="129.0" prefHeight="25.0" prefWidth="174.0" />
+            <Button fx:id="modifier" layoutX="615.0" layoutY="343.0" mnemonicParsing="false" onAction="#modifierAction" prefHeight="35.0" prefWidth="149.0" text="modifier" />
+         </children></Pane>
+      <Pane fx:id="Dons" layoutX="158.0" layoutY="129.0" prefHeight="559.0" prefWidth="1181.0" style="-fx-background-color: #DBE4FF;" visible="false">
+         <children>
+            <Label layoutX="246.0" layoutY="31.0" prefHeight="41.0" prefWidth="136.0" textFill="#5b93d0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="description_demande" layoutX="246.0" layoutY="211.0" />
+            <Button fx:id="btn_ajouter" layoutX="104.0" layoutY="284.0" mnemonicParsing="false" onAction="#ajouterDemande" prefHeight="32.0" prefWidth="84.0" text="Ajouter" />
+            <ComboBox fx:id="liste_categorie" layoutX="239.0" layoutY="125.0" prefWidth="150.0" />
+            <Button fx:id="btn_supprimer" layoutX="343.0" layoutY="284.0" mnemonicParsing="false" onAction="#supprimeDemande" prefHeight="37.0" prefWidth="104.0" text="Supprimer" />
+            <Button fx:id="btn_modifier" layoutX="222.0" layoutY="284.0" mnemonicParsing="false" onAction="#modiferDemande" prefHeight="37.0" prefWidth="89.0" text="Modifier" />
+            <TableView fx:id="tab_view" layoutX="563.0" layoutY="86.0" prefHeight="396.0" prefWidth="403.0">
+               <columns>
+                  <TableColumn fx:id="tab_categorie" prefWidth="144.0" text="Categori_demande" />
+                  <TableColumn fx:id="tab_quantite" minWidth="5.0" prefWidth="128.0" text="Quantite_demande" />
+                  <TableColumn fx:id="tab_descrip" minWidth="0.0" prefWidth="129.0" text="Descrip_demande" />
+               </columns>
+            </TableView>
+            <ComboBox fx:id="nom_maison" layoutX="239.0" layoutY="87.0" prefWidth="150.0" />
+            <Label layoutX="112.0" layoutY="89.0" text="Nom maison">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="87.0" layoutY="127.0" text="Catégorie_demande">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="91.0" layoutY="166.0" text="Quantite demande">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="71.0" layoutY="213.0" text="Description demande">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="239.0" layoutY="33.0" text="Appel aux dons">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="653.0" layoutY="33.0" text="La liste de demandes">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Spinner fx:id="spinner_quantite_demande" layoutX="246.0" layoutY="164.0" />
+            <Label fx:id="label_description" layoutX="409.0" layoutY="215.0" text="Label" />
+         </children></Pane>
+      <Pane fx:id="video" layoutX="161.0" layoutY="134.0" prefHeight="556.0" prefWidth="1175.0" style="-fx-background-color: #DBE4FF;" visible="false">
+         <children>
+            <MediaView fx:id="mv" fitHeight="200.0" fitWidth="200.0" layoutX="192.0" layoutY="7.0" />
+            <Button fx:id="btn_play" layoutX="234.0" layoutY="214.0" mnemonicParsing="false" onAction="#onClick_btn_play" text="play" />
+            <Button fx:id="btn_stop" layoutX="303.0" layoutY="214.0" mnemonicParsing="false" onAction="#onClick_btn_stop" text="stop" />
+            <MediaView fx:id="mv1" fitHeight="200.0" fitWidth="200.0" layoutX="655.0" layoutY="14.0" />
+            <Button fx:id="play1" layoutX="689.0" layoutY="239.0" mnemonicParsing="false" onAction="#onClick_btn_play1" text="play" />
+            <Button fx:id="stop1" layoutX="755.0" layoutY="239.0" mnemonicParsing="false" onAction="#onClick_btn_stop1" text="stop" />
+            <Button fx:id="play2" layoutX="234.0" layoutY="480.0" mnemonicParsing="false" onAction="#onClick_btn_play2" text="play" />
+            <Button fx:id="stop2" layoutX="322.0" layoutY="480.0" mnemonicParsing="false" onAction="#onClick_btn_stop2" text="stop" />
+            <MediaView fx:id="mv2" fitHeight="200.0" fitWidth="200.0" layoutX="203.0" layoutY="264.0" />
+            <MediaView fx:id="mv3" fitHeight="200.0" fitWidth="200.0" layoutX="636.0" layoutY="280.0" />
+            <Button fx:id="play3" layoutX="663.0" layoutY="480.0" mnemonicParsing="false" onAction="#onClick_btn_play3" text="play" />
+            <Button fx:id="stop3" layoutX="768.0" layoutY="480.0" mnemonicParsing="false" onAction="#onClick_btn_stop3" text="stop" />
+         </children>
+      </Pane>
+      <Pane fx:id="affecteDon" layoutX="161.0" layoutY="129.0" prefHeight="559.0" prefWidth="1179.0" style="-fx-background-color: #DBE4FF;" visible="false">
+         <children>
+            <TableView fx:id="tab_view1" layoutX="140.0" layoutY="125.0" prefHeight="410.0" prefWidth="362.0">
+               <columns>
+                  <TableColumn fx:id="tab_categorie1" prefWidth="111.0" text="Categori_demande" />
+                  <TableColumn fx:id="tab_quantite1" minWidth="5.0" prefWidth="115.0" text="Quantite_demande" />
+                  <TableColumn fx:id="tab_descrip1" minWidth="0.0" prefWidth="132.0" text="Descrip_demande" />
+                  <TableColumn fx:id="id_demande" minWidth="0.0" prefWidth="211.0" text="iddemande" visible="false" />
+               </columns>
+            </TableView>
+            <Label layoutX="641.0" layoutY="56.0" text="Catégorie don">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="descrip_don" layoutX="805.0" layoutY="159.0" />
+            <Button fx:id="ajoutdon" layoutX="982.0" layoutY="84.0" mnemonicParsing="false" onAction="#ajouterDon" prefHeight="41.0" prefWidth="96.0" text="Affecter" textFill="#428eda" />
+            <TextField fx:id="demande" layoutX="805.0" layoutY="54.0" />
+            <BarChart fx:id="stat_dons" layoutX="691.0" layoutY="219.0" prefHeight="316.0" prefWidth="362.0" title="Statistique dons">
+               <xAxis>
+                  <CategoryAxis label="Categorie" side="BOTTOM" fx:id="x_categorie" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis fx:id="y_quantite" label="Quantite" side="LEFT" />
+               </yAxis>
+            </BarChart>
+            <ComboBox fx:id="categorie_don" layoutX="804.0" layoutY="54.0" prefWidth="150.0" />
+            <Label layoutX="647.0" layoutY="115.0" text="Quantite don">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="647.0" layoutY="161.0" text="Description don">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="805.0" layoutY="14.0" text="Affecter don">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="256.0" layoutY="25.0" text="La liste de demandes">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="148.0" layoutY="67.0" text="Chercher demande">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="chercher_demande" layoutX="298.0" layoutY="67.0" promptText="chercher description" />
+            <Spinner fx:id="quantite_spinner" layoutX="805.0" layoutY="113.0" />
+            <Button fx:id="btn_chercher" layoutX="464.0" layoutY="63.0" mnemonicParsing="false" onAction="#ChercherDemande" prefHeight="35.0" prefWidth="89.0" text="Chercher" textFill="#428eda" />
+         </children>
+      </Pane>
+      <Pane fx:id="resident" layoutX="154.0" layoutY="130.0" prefHeight="562.0" prefWidth="1182.0" style="-fx-background-color: #DBE4FF;" visible="false">
+         <children>
+            <Label fx:id="nomResident" layoutX="65.0" layoutY="92.0" prefHeight="25.0" prefWidth="61.0" text="Nom:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="prenomResident" layoutX="65.0" layoutY="127.0" prefHeight="33.0" prefWidth="61.0" text="Prénom:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="date" layoutX="65.0" layoutY="167.0" prefHeight="33.0" prefWidth="37.0" text="Age:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Pane layoutX="119.0" layoutY="6.0" prefHeight="73.0" prefWidth="550.0" style="-fx-background-color: #629AC1;">
+               <children>
+                  <Label layoutX="11.0" layoutY="15.0" prefHeight="56.0" prefWidth="565.0" text="Ajouter un résident à votre maison:" textAlignment="CENTER" textFill="#dbe4ff">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Button fx:id="btn_annuler" layoutX="220.0" layoutY="333.0" mnemonicParsing="false" onAction="#annuler" prefHeight="25.0" prefWidth="126.0" text="Annuler">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="47.0" layoutY="333.0" mnemonicParsing="false" onAction="#ajouterResident" prefHeight="25.0" prefWidth="126.0" text="Ajouter">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="465.0" layoutY="129.0" text="Alzheimer:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="470.0" layoutY="162.0" text="Maladie:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="465.0" layoutY="100.0" text="Sexe:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nom_resident" layoutX="182.0" layoutY="92.0" />
+            <TextField fx:id="prenom_resident" layoutX="182.0" layoutY="127.0" />
+            <Spinner fx:id="age_resident" layoutX="182.0" layoutY="170.0" />
+            <TextField fx:id="maladie_resident" layoutX="543.0" layoutY="158.0" prefHeight="81.0" prefWidth="174.0" />
+            <ComboBox fx:id="sexe_resident" layoutX="555.0" layoutY="96.0" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: a8ddd3;" />
+            <ComboBox fx:id="alzheimer_resident" layoutX="555.0" layoutY="127.0" prefHeight="25.0" prefWidth="61.0" style="-fx-background-color: a8ddd3;" />
+            <DatePicker fx:id="date_ajout" layoutX="182.0" layoutY="209.0" prefHeight="25.0" prefWidth="149.0" />
+            <Label fx:id="date1" layoutX="65.0" layoutY="205.0" prefHeight="33.0" prefWidth="89.0" text="Date arrivée:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="table_resident" layoutX="741.0" layoutY="248.0" prefHeight="200.0" prefWidth="365.0">
+               <columns>
+                  <TableColumn fx:id="cnom_resident" prefWidth="75.0" text="Nom" />
+                  <TableColumn fx:id="cprenom_resident" prefWidth="75.0" text="Prénom" />
+                  <TableColumn fx:id="cage_resident" prefWidth="51.0" text="Age" />
+                  <TableColumn fx:id="cdate_resident" prefWidth="99.0" text="Date arrivée" />
+                  <TableColumn fx:id="csexe_resident" prefWidth="63.0" text="Sexe" />
+                  <TableColumn fx:id="calzheimer_resident" prefWidth="87.0" text="Alzheimer" />
+                  <TableColumn fx:id="cmaladie_resident" prefWidth="75.0" text="Maladie" />
+               </columns>
+            </TableView>
+            <Button layoutX="504.0" layoutY="391.0" mnemonicParsing="false" onAction="#supprimerResident" prefHeight="25.0" prefWidth="126.0" text="Supprimer">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+   <stylesheets>
+      <URL value="@style.css" />
+      <URL value="@style.css" />
+   </stylesheets>
+</AnchorPane>

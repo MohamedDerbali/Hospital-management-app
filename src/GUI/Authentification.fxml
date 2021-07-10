@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginRootP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="536.0" style="-fx-background-color: #EFF0F2;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AuthentificationController">
+   <children>
+      <JFXButton fx:id="login_btn" layoutX="142.0" layoutY="457.0" onAction="#LoginAction" prefHeight="38.0" prefWidth="252.0" style="-fx-background-color: #629AC1; -fx-background-radius: 20;" text="Connexion" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <Hyperlink fx:id="inscrit_lien" layoutX="142.0" layoutY="524.0" onAction="#InscriptionAction" prefHeight="27.0" prefWidth="252.0" text="Vous n'avez pas de compte ? Inscrivez-vous ! " textAlignment="CENTER" textFill="#656464">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Hyperlink>
+      <TextField fx:id="email_txt" layoutX="142.0" layoutY="313.0" prefHeight="38.0" prefWidth="252.0" promptText="Saisissez votre email" style="-fx-background-color: white;" />
+      <PasswordField fx:id="mdp_txt" layoutX="142.0" layoutY="373.0" prefHeight="38.0" prefWidth="252.0" promptText="Saisissez votre mot de passe" style="-fx-background-color: white;" />
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="367.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../projetpidev/images/user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="367.0" layoutY="383.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../projetpidev/images/locked-padlock.png" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="132.0" prefWidth="536.0" style="-fx-background-color: #629AC1;">
+         <children>
+            <ImageView fitHeight="131.0" fitWidth="193.0" layoutX="271.0" layoutY="1.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@grey-elder-couple.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Hyperlink fx:id="mdpo_lien" layoutX="259.0" layoutY="421.0" onAction="#oublierAction" prefHeight="27.0" prefWidth="147.0" text="Mot de pass oublié" textAlignment="CENTER" textFill="#656464">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Hyperlink>
+      <ImageView fitHeight="150.0" fitWidth="156.0" layoutX="204.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@New%20Mockup%201%20copy4.png" />
+         </image>
+      </ImageView>
+   </children>
+   <effect>
+      <ColorAdjust />
+   </effect>
+</AnchorPane>

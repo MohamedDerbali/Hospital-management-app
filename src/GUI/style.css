@@ -1,0 +1,136 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+.table-view {
+  /*  -fx-base: #b10837;
+    -fx-control-inner-background: white;
+    -fx-background-color: white;*/
+ 
+}
+
+.table-row-cell:selected {
+  /* -fx-background-color: #b10837; */
+}
+.table-row-cell:selected .text {
+       -fx-fill: white ;
+
+}
+
+.table-row-cell:empty             { -fx-background-color:  #FDEDEC;    }
+.table-row-cell:empty .table-cell { -fx-border-width:     0px;         }
+
+.button {
+    -fx-font-weight: bold;
+    -fx-background-color:  #DBE4FF; 
+    -fx-border-raduis: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #448DBA;
+    
+}/*
+#btn_upload{
+	-fx-font-weight: bold;
+    -fx-background-color: #b10837;
+    -fx-background-raduis: 17;
+    -fx-font-size: 12;
+    -fx-text-fill: white;
+}
+#btn_next{
+    -fx-font-weight: bold;
+    -fx-background-color: #b10837;
+    -fx-background-raduis: 15;
+    -fx-font-size: 10;
+    -fx-text-fill: white;
+}*/
+
+.button:hover {
+    -fx-font-weight: bold;
+    -fx-background-color:  #DBE4FF;
+    -fx-border-raduis: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #448DBA;
+    -fx-border-color:#448DBA;
+    -fx-border-raduis:20;
+    -fx-border-width:3;
+}
+
+.button:pressed {
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-border-raduis: 22;
+    -fx-font-size: 16;
+   /* -fx-text-fill: #b10837;*/
+    -fx-border-color: #DBE4FF;
+    -fx-border-raduis:20;
+    -fx-border-width:3;
+    -fx-rotate:2;
+}
+/*
+#btn-red{
+    -fx-background-radius : 20;
+    -fx-background-color:  #ff5f5f;
+    -fx-text-fill:  #DBE4FF;
+}
+#btn-blue{
+    
+    -fx-background-radius : 20;
+    -fx-background-color:  #629AC1;
+    -fx-text-fill:  #DBE4FF;
+}
+
+#btn-red{
+    -fx-background-radius : 20;
+    -fx-background-color:  #ff5f5f;
+    -fx-text-fill:  #DBE4FF;
+}
+#btn-blue :hover{
+    
+    -fx-background-radius : 20;
+    -fx-background-color:  #629AC1;
+    -fx-text-fill:  #DBE4FF;
+}
+*/
+#btn-red{
+    -fx-text-fill: #b10837
+}
+#btn-red:hover{
+     -fx-font-weight: bold;
+    -fx-background-color:  #DBE4FF;
+    -fx-border-raduis: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #b10837;
+    -fx-border-color:#b10837;
+    -fx-border-raduis:20;
+    -fx-border-width:3;
+}
+
+.text-field :hover{
+    -fx-background-color: #a9a9a9 , white , white;
+}
+
+.text-field:focused {
+    -fx-background-color: #FDEDEC , #FDEDEC , #FDEDEC;
+}
+
+.menu-item {
+    -fx-font-weight: bold;
+    -fx-background-color: #b10837;
+    -fx-background-raduis: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+    
+}
+
+
+.menu-item:pressed {
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-background-raduis: 22;
+    -fx-font-size: 16;
+    -fx-text-fill: #b10837;
+    
+}

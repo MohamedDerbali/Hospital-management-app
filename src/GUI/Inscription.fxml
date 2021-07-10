@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="536.0" style="-fx-background-color: #EFF0F2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.InscriptionController">
+   <children>
+      <Pane prefHeight="131.0" prefWidth="536.0" style="-fx-background-color: #629AC1;">
+         <children>
+            <ImageView fitHeight="131.0" fitWidth="196.0" layoutX="271.0" layoutY="1.0" opacity="0.7" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@grey-elder-couple.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TextField fx:id="prenom_txt" layoutX="29.0" layoutY="354.0" prefHeight="38.0" prefWidth="157.0" promptText="Prénom" style="-fx-background-color: white;" />
+      <PasswordField fx:id="mdp_txt" layoutX="239.0" layoutY="220.0" prefHeight="38.0" prefWidth="217.0" promptText="Mot de passe" style="-fx-background-color: white;" />
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="432.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../projetpidev/images/locked-padlock.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="userImage" fitHeight="112.0" fitWidth="173.0" layoutX="52.0" layoutY="176.0" onMouseClicked="#ProfileImagePickerAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../projetpidev/images/user%20(1).png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="nom_txt" layoutX="29.0" layoutY="310.0" prefHeight="38.0" prefWidth="157.0" promptText="Nom" style="-fx-background-color: white;" />
+      <TextField fx:id="email_txt" layoutX="239.0" layoutY="176.0" prefHeight="38.0" prefWidth="217.0" promptText="email" style="-fx-background-color: white;" />
+      <DatePicker fx:id="birthDate_txt" layoutX="29.0" layoutY="396.0" prefHeight="38.0" prefWidth="157.0" promptText="Entrer date naissance" style="-fx-background-color: white; -fx-border-color: #EFF0F2;" />
+      <TextField fx:id="phone_txt" layoutX="239.0" layoutY="319.0" prefHeight="38.0" prefWidth="217.0" promptText="Téléphone" style="-fx-background-color: white;" />
+      <TextField fx:id="adress_txt" layoutX="239.0" layoutY="269.0" prefHeight="38.0" prefWidth="217.0" promptText="Adresse" style="-fx-background-color: white;" />
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="432.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../projetpidev/images/maps-and-flags.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="432.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../projetpidev/images/phone-receiver.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="156.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../projetpidev/images/user.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="iscrire_btn" layoutX="239.0" layoutY="480.0" onAction="#InscriptionAction" prefHeight="38.0" prefWidth="102.0" style="-fx-background-color: #629AC1; -fx-background-radius: 20;" text="S'inscrire" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="432.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../projetpidev/images/mail-black-envelope-symbol.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="annuler_btn" layoutX="372.0" layoutY="480.0" onAction="#AnnulerAction" prefHeight="38.0" prefWidth="102.0" style="-fx-background-color: #ff5f5f; -fx-background-radius: 20;" text="Annuler" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView fx:id="emailWarning" fitHeight="18.0" fitWidth="25.0" layoutX="465.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../projetpidev/images/exclamation-mark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="phoneWarning" fitHeight="18.0" fitWidth="25.0" layoutX="465.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../projetpidev/images/exclamation-mark.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="mailUsedWarrning" layoutX="280.0" layoutY="157.0" opacity="0.74" prefHeight="17.0" prefWidth="122.0" text="ce mail est déja utilisé" textAlignment="CENTER" textFill="#ff4343" visible="false">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userrname_txt" layoutX="29.0" layoutY="442.0" prefHeight="38.0" prefWidth="157.0" promptText="Username" style="-fx-background-color: white;" />
+      <TextField fx:id="profession_txt" layoutX="239.0" layoutY="423.0" prefHeight="38.0" prefWidth="217.0" promptText="Profession(Réserve Pour les bénévole)" style="-fx-background-color: white;" />
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="156.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../projetpidev/images/user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="156.0" layoutY="452.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../projetpidev/images/user.png" />
+         </image>
+      </ImageView>
+      <ChoiceBox fx:id="rolePicker" layoutX="239.0" layoutY="373.0" prefHeight="38.0" prefWidth="217.0" style="-fx-background-color: white;" />
+      <ImageView fx:id="email_imgw" fitHeight="38.0" fitWidth="51.0" layoutX="458.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Images/mark.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="phone_imgw" fitHeight="38.0" fitWidth="51.0" layoutX="458.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Images/mark.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

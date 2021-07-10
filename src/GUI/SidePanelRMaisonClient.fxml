@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="524.0" prefWidth="161.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SidePanelRMaisonClientController">
+   <children>
+      <Pane prefHeight="237.0" prefWidth="159.0" style="-fx-background-color: #DBE4FF;">
+         <children>
+            <ImageView fx:id="userImage" fitHeight="97.0" fitWidth="89.0" layoutX="36.0" layoutY="14.0" onMouseClicked="#ProfileImagePickerAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../projetpidev/images/user%20(1).png" />
+               </image>
+            </ImageView>
+            <Label fx:id="label_nom_user" alignment="CENTER" layoutX="25.0" layoutY="114.0" prefHeight="27.0" prefWidth="112.0" text="Foulen">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="role" alignment="CENTER" layoutX="37.0" layoutY="151.0" prefHeight="13.0" prefWidth="89.0" text="Responsable MR">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <JFXButton fx:id="boutonAccueil" buttonType="RAISED" layoutX="10.0" layoutY="208.0" onAction="#changeColor" prefHeight="120.0" prefWidth="213.0" ripplerFill="#fc0000" style="-fx-background-color: white;" text=" " textFill="#686666">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
+               <image>
+                  <Image url="@../Images/home.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="boutonMaison" buttonType="RAISED" layoutX="10.0" layoutY="123.0" onAction="#changeColor" prefHeight="120.0" prefWidth="213.0" ripplerFill="#fc0000" style="-fx-background-color: white;" text=" " textFill="#686666">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
+               <image>
+                  <Image url="@../projetpidev/images/85893.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="boutonEvenement" buttonType="RAISED" layoutX="10.0" layoutY="197.0" onAction="#changeColor" prefHeight="120.0" prefWidth="213.0" ripplerFill="#fc0000" style="-fx-background-color: white;" text=" " textFill="#686666">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
+               <image>
+                  <Image url="@../projetpidev/images/calendar-icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="boutonAppelDons" buttonType="RAISED" layoutX="10.0" layoutY="364.0" onAction="#changeColor" prefHeight="120.0" prefWidth="213.0" ripplerFill="#fc0000" style="-fx-background-color: white;" text=" ">
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
+               <image>
+                  <Image url="@../projetpidev/images/gray-bell-icon-png-18.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="boutonProfil" buttonType="RAISED" layoutX="10.0" layoutY="271.0" onAction="#changeColor" prefHeight="120.0" prefWidth="213.0" ripplerFill="#fc0000" style="-fx-background-color: white;" text=" ">
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" translateX="5.0">
+               <image>
+                  <Image url="@../projetpidev/images/profile.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</VBox>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="714.0" style="-fx-background-color: #DBE4FF;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.NouvelleFicheMedicaleController">
+   <children>
+      <Pane layoutX="21.0" layoutY="96.0" prefHeight="544.0" prefWidth="672.0" style="-fx-border-color: #629AC1;">
+         <children>
+            <Label fx:id="RoleUser" layoutX="25.0" layoutY="23.0" prefHeight="33.0" prefWidth="69.0" text="Role user :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nomUserInFiche" layoutX="141.0" layoutY="23.0" prefHeight="33.0" prefWidth="61.0" text="nom" />
+            <Label fx:id="prenomUserInFiche" layoutX="212.0" layoutY="23.0" prefHeight="33.0" prefWidth="61.0" text="Prénom" />
+            <Label layoutX="199.0" layoutY="76.0" prefHeight="33.0" prefWidth="61.0" text="Patient : ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nomResidentInFiche" layoutX="311.0" layoutY="76.0" prefHeight="33.0" prefWidth="61.0" text="nom" />
+            <Label fx:id="prenomResidentInFiche" layoutX="382.0" layoutY="76.0" prefHeight="33.0" prefWidth="61.0" text="Prénom" />
+            <JFXComboBox fx:id="taille" layoutX="172.0" layoutY="247.0" prefHeight="25.0" prefWidth="81.0" />
+            <JFXComboBox fx:id="niveauTemp" layoutX="184.0" layoutY="309.0" prefHeight="25.0" prefWidth="69.0" />
+            <JFXComboBox fx:id="niveauSuc" layoutX="385.0" layoutY="309.0" prefHeight="25.0" prefWidth="69.0" />
+            <JFXComboBox fx:id="niveauTension" layoutX="592.0" layoutY="309.0" prefHeight="25.0" prefWidth="69.0" />
+            <JFXComboBox fx:id="GroupeSanguin" layoutX="592.0" layoutY="247.0" prefHeight="25.0" prefWidth="69.0" />
+            <JFXComboBox fx:id="poids" layoutX="385.0" layoutY="247.0" prefHeight="25.0" prefWidth="69.0" />
+            <Label layoutX="476.0" layoutY="311.0" prefHeight="33.0" prefWidth="110.0" text="Tension artérielle :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="271.0" layoutY="249.0" prefHeight="33.0" prefWidth="81.0" text="Poids (kg):">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="269.0" layoutY="311.0" prefHeight="33.0" prefWidth="110.0" text="Taux de sucre (g) :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="476.0" layoutY="249.0" prefHeight="33.0" prefWidth="110.0" text="Groupe Sanguin :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane prefHeight="73.0" prefWidth="714.0" style="-fx-background-color: #629AC1;">
+         <children>
+            <Label layoutX="132.0" layoutY="19.0" prefHeight="48.0" prefWidth="439.0" text="Nouvelle Fiche Médicale" textFill="#dbe4ff">
+               <font>
+                  <Font name="Bell MT Bold" size="39.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label fx:id="dateInscription" layoutX="577.0" layoutY="116.0" prefHeight="33.0" prefWidth="110.0" text="Date" visible="false" />
+      <TextArea fx:id="medicaments" layoutX="158.0" layoutY="235.0" prefHeight="72.0" prefWidth="454.0" style="-fx-border-color: #DBE4FF;" />
+      <Label layoutX="52.0" layoutY="403.0" prefHeight="33.0" prefWidth="151.0" text="Niveau de temperature(°) :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_creer" layoutX="190.0" layoutY="620.0" mnemonicParsing="false" onAction="#creerFiche" prefHeight="25.0" prefWidth="126.0" style="-fx-border-color: #629AC1;" text="Créer" />
+      <Button layoutX="341.0" layoutY="620.0" mnemonicParsing="false" onAction="#annuler" prefHeight="25.0" prefWidth="126.0" style="-fx-border-color: #629AC1;" text="Annuler" />
+      <Label layoutX="416.0" layoutY="116.0" prefHeight="33.0" prefWidth="126.0" text="Date de l'inscription :" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="229.0" prefHeight="33.0" prefWidth="97.0" text="Médicaments :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="348.0" prefHeight="33.0" prefWidth="142.0" text="Taille (cm): ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="remarqueFiche" layoutX="156.0" layoutY="470.0" prefHeight="72.0" prefWidth="454.0" style="-fx-border-color: #DBE4FF;" />
+      <Label layoutX="48.0" layoutY="461.0" prefHeight="33.0" prefWidth="97.0" text="Remarques :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="currDate" layoutX="557.0" layoutY="571.0" prefHeight="33.0" prefWidth="89.0" text="Date" />
+      <Label fx:id="nomMaisonInFiche" layoutX="464.0" layoutY="571.0" prefHeight="33.0" prefWidth="81.0" text="Maison ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
